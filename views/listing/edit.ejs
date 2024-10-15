@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <br><br>
+    <h1 style="text-align: center;">Edit this Listing..!</h1>
+
+    <div class="row">
+        <div class="col-8 offset-2" >
+
+    <form action="/listings/<%=listing._id%>?_method=PUT" method="POST" enctype="multipart/form-data" >
+        <div>
+            <label for="title" class="form-label">Title</label>
+        <input  value="<%=listing.title%>" type="text" name="listing[title]" class="form-control" required>
+        <div class="valid-feedback">Title Looks Good!</div>
+        </div>
+        
+        <div>
+            <label for="description" class="form-label">Description</label>
+        <input   type="text" name="listing[description]" class="form-control" required value="<%=listing.description%>">
+        <div class="invalid-feedback">Enter a Valid Description!</div>
+        </div>
+
+        <div>
+            Original Listing Image <br>
+            <img src="<%=originalImageUrl%>">
+        </div>
+
+        <div>
+            <label for="image" class="form-label">Upload New Image</label>
+            <input type="file" name="listing[image]" class="form-control" required>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input  value="<%=listing.price%>" type="number" name="listing[price]" class="form-control" required>
+                <div class="invalid-feedback">Enter a Valid Price!</div>
+            </div>
+    
+            <div class="col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input  value="<%=listing.country%>" type="text" name="listing[country]" class="form-control" required>
+                <div class="invalid-feedback">Enter a Valid Country Name!</div>
+            </div>
+        </div>
+        <div>
+            <label for="location" class="form-label">Location</label>
+            <input  value="<%=listing.location%>" type="text" name="listing[location]" class="form-control" required>
+            <div class="invalid-feedback">Enter a Valid Location Name!</div>
+        <button class="btn edit-btn mt-3">Edit</button>
+        <br><br>
+        </div>
+    </form>
+    </div>
+    </div>
+</body>
